@@ -5,7 +5,10 @@ import SelectOptions from "../components/selectOptions";
 import UnitResults from "../components/unitResults";
 
 type PollingUnitProps = {
-  unitNames: {}[];
+  unitNames: {
+    uniqueid: number;
+    polling_unit_name: string;
+  }[];
 };
 
 function PollingUnit({ unitNames }: PollingUnitProps) {
@@ -16,7 +19,7 @@ function PollingUnit({ unitNames }: PollingUnitProps) {
     setSelectedUnit(event.currentTarget.value);
   }
 
-  async function handleSubmit(event: React.MouseEvent) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = await fetch(`/api/${selectedUnit}`);
     const result = await data.json();

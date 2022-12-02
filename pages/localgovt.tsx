@@ -4,15 +4,22 @@ import { localGov } from "../backend/models/lgModel";
 import LgaSelect from "../components/lgaSelect";
 import SelectOptions from "../components/selectOptions";
 
-function LocalGov({ localGovList }) {
+type localGovProps = {
+  localGovList: {
+    lga_name: string;
+    lga_id: number;
+  }[];
+};
+
+function LocalGov({ localGovList }: localGovProps) {
   const [selected, setSelected] = useState("");
   const [totalScore, setTotalScore] = useState<number | null>(null);
 
-  function handleChange(event: React.ChangeEvent) {
-    setSelected(event.target.value);
+  function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    setSelected(event.currentTarget.value);
   }
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     const data = await fetch(`/api/pollingtotal?query=${selected}`);
     const resultTotal = await data.json();
@@ -33,7 +40,7 @@ function LocalGov({ localGovList }) {
       </form>
       <p className="form_data">{totalScore}</p>
       <div className="container">
-        <Link href={"/"} className="next_link" href={"/polling-unit"}>
+        <Link href={"/"} className="next_link">
           Get results for polling units
         </Link>
       </div>
