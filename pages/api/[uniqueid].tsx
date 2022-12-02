@@ -10,7 +10,7 @@ PuResult.belongsTo(PollingUnit, {
   },
 });
 
-type requestProp = {
+type Data = {
   query: {};
 };
 
