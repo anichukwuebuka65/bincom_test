@@ -10,10 +10,8 @@ PuResult.belongsTo(PollingUnit, {
   },
 });
 
-type Data = {
-  query: {
-    uniqueid: string | undefined;
-  };
+type requestProp = {
+  query: {};
 };
 
 async function FindUnit(req: NextApiRequest, res: NextApiResponse<Data>) {
