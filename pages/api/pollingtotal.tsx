@@ -35,7 +35,5 @@ export default async function GetTotalScore(
     sum = sum + totalScore[i].party_score;
   }
 
-  console.log(newArr, totalScore);
-
   res.status(200).json({ total_score: sum });
 }

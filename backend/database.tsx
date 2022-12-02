@@ -3,11 +3,11 @@ import { Sequelize, DataTypes } from "sequelize";
 require("dotenv").config();
 
 const conn = new Sequelize(
-  "bincomphptest", //process.env.DATABASE_NAME,
-  "root", //process.env.DATABASE_USERNAME,
-  "", //process.env.DATABASE_PASSWORD,
+  process.env.DATABASE_NAME,
+  process.env.DATABASE_USERNAME,
+  process.env.DATABASE_PASSWORD,
   {
-    host: "localhost", //process.env.DATABASE_HOST,
+    host: process.env.DATABASE_HOST,
     dialect: "mysql",
   }
 );

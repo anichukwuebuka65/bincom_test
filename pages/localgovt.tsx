@@ -33,11 +33,7 @@ function LocalGov({ localGovList }) {
       </form>
       <p className="form_data">{totalScore}</p>
       <div className="container">
-        <Link
-          href={"/polling-unit"}
-          className="next_link"
-          href={"/polling-unit"}
-        >
+        <Link href={"/"} className="next_link" href={"/polling-unit"}>
           Get results for polling units
         </Link>
       </div>
