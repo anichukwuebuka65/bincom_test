@@ -24,3 +24,78 @@ a {
     background: black;
   }
 }
+
+h1,
+h2 {
+  font-size: 20px;
+  text-align: center;
+}
+
+select {
+  display: block;
+  /* min-width: min(100%, 400px); */
+  margin: 0 auto;
+  padding: 10px 10px;
+  border: 2px solid rgb(62, 30, 112);
+  border-radius: 10px;
+  color: rgb(26, 26, 34);
+}
+
+main {
+  min-width: min(100%, 400px);
+  padding: 5px;
+}
+
+/* main,
+form {
+  display: grid;
+} */
+
+.btn {
+  display: block;
+  cursor: pointer;
+  font-size: 20px;
+  width: 100px;
+  margin: 20px auto 20px auto;
+  padding: 10px 20px;
+  border: 2px solid rgb(62, 30, 112);
+  border-radius: 10px;
+}
+
+.form_data {
+  text-align: center;
+  font-size: 50px;
+}
+
+.results {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.results p {
+  display: flex;
+  max-width: min(100%, 300px);
+  margin: 0 auto;
+  justify-content: space-between;
+  font-size: 25px;
+  font-weight: 700;
+}
+h2 span {
+  text-decoration: underline;
+  color: rgb(149, 151, 37);
+}
+
+.next_link {
+  background-color: rgb(26, 26, 41);
+  color: white;
+  padding: 5px 10px;
+  font-weight: 500;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+div .container {
+  padding: 10px;
+}
