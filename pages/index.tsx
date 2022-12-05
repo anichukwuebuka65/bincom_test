@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { PollingUnit as Unit } from "../src/backend/backend/models/PollingUnitUnit";
+import { PollingUnit as Unit } from "../src/backend/models/PollingUnit";
 import SelectOptions from "../src/components/selectOptions";
 import UnitResults from "../src/components/unitResults";
 

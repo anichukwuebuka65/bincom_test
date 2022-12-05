@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { PollingUnit } from "../../src/backend/backend/models/PollingUnitUnit";
-import { PuResult } from "../../src/backend/backend/models/puResultsults";
+import { PollingUnit } from "../../src/backend/models/PollingUnit";
+import { PuResult } from "../../src/backend/models/puResults";
 
 PollingUnit.hasMany(PuResult);
 PuResult.belongsTo(PollingUnit, {

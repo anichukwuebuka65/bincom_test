@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { localGov } from "../src/backend/backend/models/lgModelodel";
+import { localGov } from "../src/backend/models/lgModel";
 import LgaSelect from "../src/components/lgaSelect";
 import SelectOptions from "../src/components/selectOptions";
 

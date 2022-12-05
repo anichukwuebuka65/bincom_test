@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { PollingUnit } from "../../src/backend/backend/models/PollingUnitUnit";
-import { PuResult } from "../../src/backend/backend/models/puResultsults";
-import { conn as sequelize } from "../../src/backend/backend/database";
+import { PollingUnit } from "../../src/backend/models/PollingUnit";
+import { PuResult } from "../../src/backend/models/puResults";
+import { conn as sequelize } from "../../src/backend/database";
 
 type Data = {};
 
