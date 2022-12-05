@@ -10,29 +10,30 @@ export default async function GetTotalScore(
 ) {
   const { query } = req;
   if (!query.query) res.send("no query params");
+  res.status(200).json({ totalScore: "60" });
 
-  const lga = await PollingUnit.findAll({
-    raw: true,
-    where: {
-      lga_id: query.query,
-    },
-    attributes: ["polling_unit_id"],
-  });
+  // const lga = await PollingUnit.findAll({
+  //   raw: true,
+  //   where: {
+  //     lga_id: query.query,
+  //   },
+  //   attributes: ["polling_unit_id"],
+  // });
 
-  const newArr = lga.map((item) => item.polling_unit_id);
+  // const newArr = lga.map((item) => item.polling_unit_id);
 
-  const totalScore = await PuResult.findAll({
-    raw: true,
-    where: {
-      polling_unit_uniqueid: newArr,
-    },
-    attributes: ["party_score"],
-  });
+  // const totalScore = await PuResult.findAll({
+  //   raw: true,
+  //   where: {
+  //     polling_unit_uniqueid: newArr,
+  //   },
+  //   attributes: ["party_score"],
+  // });
 
-  let sum = 0;
-  for (let i = 0; i < totalScore.length; i++) {
-    sum = sum + totalScore[i].party_score;
-  }
+  // let sum = 0;
+  // for (let i = 0; i < totalScore.length; i++) {
+  //   sum = sum + totalScore[i].party_score;
+  // }
 
-  res.status(200).json({ total_score: sum });
+  // res.status(200).json({ total_score: sum });
 }
