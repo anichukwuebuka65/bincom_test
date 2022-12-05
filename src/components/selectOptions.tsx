@@ -2,7 +2,7 @@ import React from "react";
 
 type SelectOptionsProps = {
   data: {
-    uniqueid: number;
+    uniqueid: string;
     polling_unit_name: string;
   }[];
 };

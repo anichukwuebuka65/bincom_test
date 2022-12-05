@@ -6,13 +6,13 @@ import UnitResults from "../src/components/unitResults";
 
 type PollingUnitProps = {
   unitNames: {
-    uniqueid: number;
+    uniqueid: string;
     polling_unit_name: string;
   }[];
 };
 
 function PollingUnit({ unitNames }: PollingUnitProps) {
-  const [selectedUnit, setSelectedUnit] = useState("");
+  const [selectedUnit, setSelectedUnit] = useState(unitNames[0].uniqueid);
   const [unitResults, setUnitResults] = useState([]);
 
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -20,10 +20,14 @@ function PollingUnit({ unitNames }: PollingUnitProps) {
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const data = await fetch(`/api/${selectedUnit}`);
-    const result = await data.json();
-    setUnitResults(result);
+    try {
+      event.preventDefault();
+      const data = await fetch(`api/${selectedUnit}`);
+      const result = await data.json();
+      setUnitResults(result);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

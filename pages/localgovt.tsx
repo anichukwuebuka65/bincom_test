@@ -7,29 +7,27 @@ import SelectOptions from "../src/components/selectOptions";
 type localGovProps = {
   localGovList: {
     lga_name: string;
-    lga_id: number;
+    lga_id: string;
   }[];
 };
 
 function LocalGov({ localGovList }: localGovProps) {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(localGovList[0].lga_id);
   const [totalScore, setTotalScore] = useState<number | null>(null);
 
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setSelected(event.currentTarget.value);
   }
-
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     const data = await fetch(`/api/pollingtotal?query=${selected}`);
     const resultTotal = await data.json();
     setTotalScore(resultTotal.total_score);
-    console.log(resultTotal.total_score);
   }
 
   return (
     <main>
-      <h1>LOCAL GOVERNMENTS AND RESULTS</h1>
+      <h1>LOCAL GOVERNMENTS AND RESULTS </h1>
       <form onSubmit={handleSubmit}>
         <select value={selected} onChange={handleChange}>
           <LgaSelect data={localGovList} />

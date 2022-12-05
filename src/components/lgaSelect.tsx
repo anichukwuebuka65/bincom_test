@@ -3,7 +3,7 @@ import React from "react";
 type SelectOptionsProps = {
   data: {
     lga_name: string;
-    lga_id: number;
+    lga_id: string;
   }[];
 };
 
