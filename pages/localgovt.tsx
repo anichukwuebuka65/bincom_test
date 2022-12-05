@@ -19,10 +19,13 @@ function LocalGov({ localGovList }: localGovProps) {
     setSelected(event.currentTarget.value);
   }
   async function handleSubmit(event: React.FormEvent) {
-    event.preventDefault();
-    const data = await fetch(`/api/pollingtotal?query=${selected}`);
-    const resultTotal = await data.json();
-    setTotalScore(resultTotal.total_score);
+    try {
+      event.preventDefault();
+      const data = await fetch(`/api/pollingtotal?query=${selected}`);
+      const resultTotal = await data.json();
+      console.log(resultTotal);
+      setTotalScore(resultTotal.total_score);
+    } catch (error) {}
   }
 
   return (

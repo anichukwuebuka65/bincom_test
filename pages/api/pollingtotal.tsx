@@ -10,7 +10,7 @@ export default async function GetTotalScore(
 ) {
   const { query } = req;
   if (!query.query) res.send("no query params");
-  res.status(200).json({ totalScore: "60" });
+  res.status(200).json({ total_score: "60" });
 
   // const lga = await PollingUnit.findAll({
   //   raw: true,
