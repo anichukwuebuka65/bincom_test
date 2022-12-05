@@ -1,11 +1,20 @@
 import { Sequelize, DataTypes } from "sequelize";
-
 require("dotenv").config();
 
-const conn = new Sequelize("sql7582256", "sql7582256", "kY7VsUSHfa", {
-  host: "sql7.freemysqlhosting.net",
-  dialect: "mysql",
-});
+const DATABASE_NAME = process.env.DATABASE_NAME;
+const DATABASE_USERNAME = process.env.DATABASE_USERNAME;
+const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
+const DATABASE_HOST = process.env.DATABASE_HOST;
+
+const conn = new Sequelize(
+  DATABASE_NAME,
+  DATABASE_USERNAME,
+  DATABASE_PASSWORD,
+  {
+    host: DATABASE_HOST,
+    dialect: "mysql",
+  }
+);
 // const conn = new Sequelize(process.env.DATABASE_URL, {
 //   dialect: "postgres",
 //   dialectOptions: {
@@ -21,4 +30,7 @@ conn
   .then((data) => console.log("connected"))
   .catch((error) => console.log("the error is THAT" + error));
 
-export { conn, DataTypes };
+module.exports = {
+  conn,
+  DataTypes,
+};

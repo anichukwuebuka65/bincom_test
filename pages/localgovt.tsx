@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { localGov } from "../backend/models/lgModel";
-import LgaSelect from "../components/lgaSelect";
-import SelectOptions from "../components/selectOptions";
+import { localGov } from "../src/backend/backend/models/lgModelodel";
+import LgaSelect from "../src/components/lgaSelect";
+import SelectOptions from "../src/components/selectOptions";
 
 type localGovProps = {
   localGovList: {

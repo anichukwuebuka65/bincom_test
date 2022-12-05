@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { PollingUnit } from "../../backend/models/PollingUnit";
-import { PuResult } from "../../backend/models/puResults";
+import { PollingUnit } from "../../src/backend/backend/models/PollingUnitUnit";
+import { PuResult } from "../../src/backend/backend/models/puResultsults";
 
 PollingUnit.hasMany(PuResult);
 PuResult.belongsTo(PollingUnit, {
@@ -15,6 +15,7 @@ type Data = {
 };
 
 async function FindUnit(req: NextApiRequest, res: NextApiResponse<Data>) {
+  console.log(req);
   const { query } = req;
   const pollUnit = await PollingUnit.findOne({
     raw: true,
